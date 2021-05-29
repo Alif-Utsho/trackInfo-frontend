@@ -33,15 +33,20 @@ class Login extends React.Component{
         return (
             <div className='container'>
                 <div className="row">
-                    <div className="col-md-4 mx-auto mt-5">
+                    <div className="col-md-3 mx-auto mt-5">
                         <div className="card card-body">
-                            <p className='display-4 fw-normal text-center alert alert-warning'>LOGIN</p>
+                            <div>
+                                <p className='display-4 fw-normal text-center alert alert-warning'>LOGIN</p>
+                            </div>
+                            {error.message && <p className='text-danger text-center fw-bold alert alert-danger'>
+                                {error.message}
+                            </p>}
                             <form onSubmit={this.submitHandler}>
                                 <div>
-                                    <label htmlFor="username" className='my-2'>Username</label>
+                                    {/* <label htmlFor="username" className='my-2'>Username</label> */}
                                     <input
                                         type="text"
-                                        placeholder="Enter your Username"
+                                        placeholder="User name"
                                         className={error.username ? 'form-control is-invalid' : 'form-control'}
                                         id="username"
                                         name="username"
@@ -52,11 +57,11 @@ class Login extends React.Component{
                                         {error.username}
                                     </div>}
                                 </div>
-                                <div>
-                                    <label htmlFor="password" className='my-2'>Password</label>
+                                <div className='mt-3'>
+                                    {/* <label htmlFor="password" className='my-2'>Password</label> */}
                                     <input
                                         type="password"
-                                        placeholder="Enter your Password"
+                                        placeholder="Password"
                                         className={error.password ? 'form-control is-invalid' : 'form-control'}
                                         id="password"
                                         name="password"
@@ -67,11 +72,9 @@ class Login extends React.Component{
                                         {error.password}
                                     </div>}
                                 </div>
-                                <button className="btn btn-outline-primary alert-primary my-3 col-12 mx-auto d-block" type="submit">Login</button>
+                                <button className="btn btn-outline-primary alert-primary mt-3 col-12 mx-auto d-block" type="submit">Login</button>
 
-                                {error.message && <p className='text-danger text-center fw-bold alert alert-danger'>
-                                    {error.message}
-                                </p>}
+                                
                             </form>
                         </div>
                     </div>
